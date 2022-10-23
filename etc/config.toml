@@ -1,0 +1,7 @@
+[servers]
+host = '0.0.0.0'
+port = 8080
+
+[database]
+driver = "sqlite"
+dsn = "./test.db"

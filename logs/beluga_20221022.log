@@ -1,0 +1,28 @@
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 13:20:44.3815"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 13:20:44.4728"}
+{"level":"info","msg":"test for logger","time":"2022-10-22 13:21:36.5349"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 14:24:59.8793"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 14:24:59.9366"}
+{"level":"info","msg":"test for logger","time":"2022-10-22 14:25:27.1147"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 14:30:33.0949"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 14:30:33.0960"}
+{"RequestId":"c6822c78-5989-47e1-b14e-f10a081d95a8","level":"info","msg":"test for logger","time":"2022-10-22 14:30:53.1457"}
+{"RequestId":"45f13b97-07b0-40f5-b03a-ecbb49e02738","level":"info","msg":"test for logger","time":"2022-10-22 14:31:19.2148"}
+{"RequestId":"d915b0ea-7e6f-4e7c-9a6d-6c7103fc3714","level":"info","msg":"test for logger","time":"2022-10-22 14:31:29.4538"}
+{"RequestId":"b63b815e-b85f-4280-8c6e-46bd742bd51c","level":"info","msg":"test for logger","time":"2022-10-22 14:31:31.0719"}
+{"RequestId":"abc36804-4de0-4a4b-89ff-4dc678419db9","level":"info","msg":"test for logger","time":"2022-10-22 14:31:43.6157"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 16:30:28.1840"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 16:30:28.2189"}
+{"RequestId":"850abd94-3465-4bd3-8866-30614f752f29","level":"info","msg":"test for logger","time":"2022-10-22 16:31:00.8055"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 16:43:00.6792"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 16:43:00.6799"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 17:46:37.9082"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 17:46:37.9755"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 17:57:12.4969"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 17:57:12.5672"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 18:03:44.8546"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 18:03:44.9191"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 18:13:33.3620"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 18:13:33.3771"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-22 18:23:06.0206"}
+{"level":"info","msg":"Server existing","time":"2022-10-22 18:23:06.0211"}
