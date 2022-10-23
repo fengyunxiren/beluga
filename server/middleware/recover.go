@@ -1,14 +1,14 @@
 package middleware
 
 import (
-	"/logger"
-	"kangaroo/common/response"
+	"beluga/server/common/logger"
+	"beluga/server/common/response"
 
 	"github.com/gin-gonic/gin"
 )
 
 func RecoveryHandler(c *gin.Context, err interface{}) {
-	log := logger.GetContextEntry(c)
+	log := logger.GetContextLogger(c)
 	log.Error("service return error: ", err)
 	response.AbortWithError(response.ERR_SERVER_500, c)
 }

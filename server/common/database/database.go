@@ -13,7 +13,6 @@ import (
 )
 
 var globalDB *gorm.DB
-var ContextDBName string = "DB_POOL"
 
 func GetDB() *gorm.DB {
 	if globalDB == nil {
