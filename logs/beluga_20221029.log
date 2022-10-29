@@ -53,3 +53,5 @@
 {"RequestId":"6aed68fd-03ea-418e-ab2c-067b30827a5a","level":"info","msg":"id: {1}","time":"2022-10-29 16:07:04.7386"}
 {"RequestId":"788439c9-42fe-4da4-bdd9-598470c37880","level":"info","msg":"id: {1}","time":"2022-10-29 16:07:42.6060"}
 {"RequestId":"788439c9-42fe-4da4-bdd9-598470c37880","level":"error","msg":"Create failed: record not found","time":"2022-10-29 16:07:42.6064"}
+{"level":"info","msg":"Showtdown Server ...","time":"2022-10-29 16:19:21.4775"}
+{"level":"info","msg":"Server existing","time":"2022-10-29 16:19:21.4784"}
