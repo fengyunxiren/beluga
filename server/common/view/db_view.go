@@ -35,7 +35,8 @@ func (v DBView) CreateAction() gin.HandlerFunc {
 			response.AbortWithError(response.ERR_SERVER_DB_NOT_FOUND, c)
 			return
 		}
-		instance := v.generator("instance")
+		instance := v.generator(utils.PTR)
+		log.Info("type of instance: ", reflect.TypeOf(instance))
 		if err = c.ShouldBindBodyWith(instance, binding.JSON); err != nil {
 			log.Error("Bind body failed: ", err)
 			response.AbortWithError(response.ERR_BAD_REQUEST, c)
@@ -43,7 +44,6 @@ func (v DBView) CreateAction() gin.HandlerFunc {
 		}
 		log.Info("instance: ", instance)
 		log.Info("type of instance: ", reflect.TypeOf(instance))
-		db.AutoMigrate(instance)
 		result := db.Create(instance)
 		if result.Error != nil {
 			log.Error("Create failed: ", result.Error)
@@ -76,8 +76,8 @@ func (v DBView) ListAction() gin.HandlerFunc {
 			query.PageSize = 10
 		}
 		log.Info("query: ", query)
-		model := v.generator("instance")
-		instances := v.generator("list")
+		model := v.generator(utils.PTR)
+		instances := v.generator(utils.LIST)
 		var count int64
 		offset := (query.Page - 1) * query.PageSize
 		db = database.FuzzyQuery(db, model, query.Query, nil)
@@ -110,8 +110,8 @@ func (v DBView) GetDetailAction() gin.HandlerFunc {
 			return
 		}
 		log.Info("id: ", id)
-		model := v.generator("instance")
-		instances := v.generator("list")
+		model := v.generator(utils.PTR)
+		instances := v.generator(utils.LIST)
 		result := db.Model(model).Where("ID = ?", id.ID).First(&instances)
 		if result.Error != nil {
 			log.Error("Create failed: ", result.Error)
@@ -142,9 +142,9 @@ func (v DBView) UpdateAction() gin.HandlerFunc {
 			response.ResponseError(response.ERR_BAD_REQUEST, c)
 			return
 		}
-		model := v.generator("instance")
-		update := map[string]interface{}{}
-		if err = c.ShouldBindBodyWith(&update, binding.JSON); err != nil {
+		model := v.generator(utils.PTR)
+		update := v.generator(utils.PTR)
+		if err = c.ShouldBindBodyWith(update, binding.JSON); err != nil {
 			log.Error("Bind body failed: ", err)
 			response.AbortWithError(response.ERR_BAD_REQUEST, c)
 			return
@@ -174,8 +174,8 @@ func (v DBView) DeleteAction() gin.HandlerFunc {
 			response.ResponseError(response.ERR_BAD_REQUEST, c)
 			return
 		}
-		model := v.generator("instance")
-		instances := v.generator("list")
+		model := v.generator(utils.PTR)
+		instances := v.generator(utils.LIST)
 		result := db.Model(model).Where("id = ?", id.ID).Delete(&instances)
 		if result.Error != nil {
 			log.Error("Delete model failed: ", result.Error)

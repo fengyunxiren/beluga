@@ -81,6 +81,7 @@ func setupDatabase(data config.Database) error {
 }
 
 func initMiddleware(router gin.IRouter) {
+	router.Use(middleware.Recovery())
 	router.Use(middleware.RequestId())
 	configer := config.GetConfig()
 	var logLevel logrus.Level
@@ -90,6 +91,7 @@ func initMiddleware(router gin.IRouter) {
 		logLevel = logrus.InfoLevel
 	}
 	router.Use(middleware.AccessLogger(configer.Default.AccessLogPath, logLevel))
+	router.Use(middleware.SetDB())
 }
 
 func RunServer() error {
@@ -99,13 +101,6 @@ func RunServer() error {
 	ServerAPIRouters.RegisterRouter(router)
 	configer := config.GetConfig()
 	log := logger.GetLogger()
-	router.GET("/ping", func(c *gin.Context) {
-		log := logger.GetContextLogger(c)
-		log.Info("test for logger")
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
 
 	srv := &http.Server{
 		Addr:    fmt.Sprintf("%s:%d", configer.Servers.Host, configer.Servers.Port),
