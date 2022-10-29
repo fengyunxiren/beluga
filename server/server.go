@@ -96,7 +96,7 @@ func RunServer() error {
 	fmt.Println("Welcom to beluga...")
 	router := gin.New()
 	initMiddleware(router)
-	ServerApps.RegisterRouter(router)
+	ServerAPIRouters.RegisterRouter(router)
 	configer := config.GetConfig()
 	log := logger.GetLogger()
 	router.GET("/ping", func(c *gin.Context) {
