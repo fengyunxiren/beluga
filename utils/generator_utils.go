@@ -20,7 +20,7 @@ func NewGenerator[T any]() Generator {
 			var instance T
 			return &instance
 		case LIST:
-			var instance []T
+			instance := make([]T, 0)
 			return instance
 		default:
 			var instance T

@@ -7,6 +7,8 @@ import (
 	"beluga/server/common/logger"
 	"beluga/server/common/response"
 	"beluga/utils"
+	"fmt"
+	"reflect"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
@@ -35,6 +37,7 @@ func UserRegister(c *gin.Context) {
 	form.Password = hashPassword
 	user := models.User{}
 	result := db.Model(&user).Select("UserName", "Password", "Email").Create(
+		// TODO, Struct To Map
 		map[string]interface{}{
 			"UserName": form.UserName,
 			"Password": form.Password,
@@ -42,8 +45,13 @@ func UserRegister(c *gin.Context) {
 		},
 	)
 	if result.Error != nil {
-		log.Error("Create failed: ", result.Error)
-		response.ResponseError(response.ERR_SERVER_VIEW_CREATE, c)
+		log.Error("Create User failed: ", result.Error)
+		fmt.Println("error: ", reflect.TypeOf(result.Error))
+		if utils.IsDuplicateKeyError(result.Error) {
+			response.ResponseError(response.ERR_REIGSTER_UNIQUE, c)
+		} else {
+			response.ResponseError(response.ERR_SERVER_VIEW_CREATE, c)
+		}
 	} else {
 		response.ResponseOk(c)
 	}

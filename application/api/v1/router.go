@@ -15,4 +15,5 @@ func (t APIV1Router) GetRouter(root gin.IRouter) gin.IRouter {
 
 func (t APIV1Router) RegisterRouter(router gin.IRouter) {
 	router.POST("/users/register", UserRegister)
+	router.POST("/login", UserLogin)
 }
