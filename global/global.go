@@ -9,3 +9,11 @@ const (
 	CONTEXT_LOGGER     = "Logger"
 	CONTEXT_DB         = "DB"
 )
+
+const (
+	DIGIT     = "0123456789"
+	CAPITAL   = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	LOWERCASE = "abcdefghijklmnopqrstuvwxyz"
+	SPECIAL   = `~!@#$%^&*()_+<>?,./[]{}\|`
+	LETTER    = CAPITAL + LOWERCASE
+)

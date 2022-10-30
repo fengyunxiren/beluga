@@ -1,10 +1,12 @@
 package database
 
 import (
+	"beluga/global"
 	"beluga/server/common/logger"
 	"errors"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
@@ -20,6 +22,20 @@ func GetDB() *gorm.DB {
 		log.Fatal("Database is not init")
 	}
 	return globalDB
+}
+
+func GetContextDB(c *gin.Context) (*gorm.DB, error) {
+	db, exist := c.Get(global.CONTEXT_DB)
+	if !exist {
+		return nil, errors.New("db connect not exist")
+	}
+	switch db := db.(type) {
+	case *gorm.DB:
+		//新增操作
+		return db, nil
+	default:
+		return nil, errors.New("db connect not support")
+	}
 }
 
 func InitDBPool(driver string, dsn string, maxIdleConns int, maxOpenConns int, maxLifeTime time.Duration) error {

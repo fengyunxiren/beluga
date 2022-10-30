@@ -4,6 +4,7 @@ import (
 	"beluga/server/common/config"
 	"beluga/server/common/database"
 	"beluga/server/common/logger"
+	"beluga/server/common/validate"
 	"beluga/server/middleware"
 	"context"
 	"errors"
@@ -34,6 +35,10 @@ func SetUp(configPath string) error {
 		return err
 	}
 	err = setupDatabase(configer.Database)
+	if err != nil {
+		return err
+	}
+	err = validate.InitValidator()
 	if err != nil {
 		return err
 	}

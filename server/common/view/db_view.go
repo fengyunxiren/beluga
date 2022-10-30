@@ -149,6 +149,7 @@ func (v DBView) UpdateAction() gin.HandlerFunc {
 			response.AbortWithError(response.ERR_BAD_REQUEST, c)
 			return
 		}
+		log.Info("update: ", update)
 		result := db.Model(model).Where("id = ?", id.ID).Updates(update)
 		if result.Error != nil {
 			log.Error("Update model failed: ", result.Error)

@@ -1,24 +1,18 @@
 package v1
 
 import (
-	"beluga/application/api/models"
-	"beluga/server/common/view"
-	"beluga/utils"
-
 	"github.com/gin-gonic/gin"
 )
 
-type TestAPIRouter struct{}
+type APIV1Router struct{}
 
-var TestAPI TestAPIRouter
+var APIV1 APIV1Router
 
-func (t TestAPIRouter) GetRouter(root gin.IRouter) gin.IRouter {
+func (t APIV1Router) GetRouter(root gin.IRouter) gin.IRouter {
 	router := root.Group("/api/v1")
 	return router
 }
 
-func (t TestAPIRouter) RegisterRouter(router gin.IRouter) {
-	router.GET("/apiCheck", APICheck)
-	userView := view.NewDBView("", "User", utils.NewGenerator[models.User]())
-	view.RegisterView(userView, router)
+func (t APIV1Router) RegisterRouter(router gin.IRouter) {
+	router.POST("/users/register", UserRegister)
 }
