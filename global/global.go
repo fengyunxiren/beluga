@@ -17,3 +17,7 @@ const (
 	SPECIAL   = `~!@#$%^&*()_+<>?,./[]{}\|`
 	LETTER    = CAPITAL + LOWERCASE
 )
+
+const (
+	AUTH_HEADER = "X-Auth-Token"
+)

@@ -1,6 +1,7 @@
 package server
 
 import (
+	"beluga/server/common/auth"
 	"beluga/server/common/config"
 	"beluga/server/common/database"
 	"beluga/server/common/logger"
@@ -42,6 +43,7 @@ func SetUp(configPath string) error {
 	if err != nil {
 		return err
 	}
+	auth.InitJWTAuth(configer.Auth.SecretKey, configer.Auth.ExpireTime, configer.Auth.RefreshTime, configer.Auth.Issuer)
 	return nil
 }
 

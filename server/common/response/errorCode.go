@@ -20,6 +20,7 @@ var (
 	ERR_NOT_ALLOWED         = NewErrorCode(405001, "The method is not allowed")
 	ERR_SERVER_500          = NewErrorCode(500001, "The server encountered an unknown error")
 	ERR_SERVER_DB_NOT_FOUND = NewErrorCode(500101, "The server encountered an unknown error")
+	ERR_SERVER_TOKEN_GEN    = NewErrorCode(5002001, "Generate token failed")
 	// View error
 	ERR_SERVER_VIEW_CREATE = NewErrorCode(600001, "Create data failed")
 	ERR_SERVER_VIEW_GET    = NewErrorCode(600002, "Get data failed")

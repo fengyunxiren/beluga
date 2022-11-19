@@ -1,6 +1,8 @@
 package v1
 
 import (
+	"beluga/application/api/v1/auth"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,6 +16,6 @@ func (t APIV1Router) GetRouter(root gin.IRouter) gin.IRouter {
 }
 
 func (t APIV1Router) RegisterRouter(router gin.IRouter) {
-	router.POST("/users/register", UserRegister)
-	router.POST("/login", UserLogin)
+	router.POST("/users/register", auth.UserRegister)
+	router.POST("/login", auth.UserLogin)
 }

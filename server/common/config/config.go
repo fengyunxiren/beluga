@@ -31,6 +31,7 @@ type Auth struct {
 	SecretKey   string
 	ExpireTime  time.Duration
 	RefreshTime time.Duration
+	Issuer      string
 }
 
 type Config struct {
@@ -72,6 +73,7 @@ func NewDefaultConfig() *Config {
 			SecretKey:   `e05b5334052af5d521856506a2fcf5d9c9f3a82bf5e9fdae0c5e8e7f22f3e000201b50a87df1b3ca57f77f7d30530204b9614aaac1cdfb01d8780fb67caff7a4`,
 			ExpireTime:  time.Hour,
 			RefreshTime: time.Hour * 24,
+			Issuer:      `beluga`,
 		},
 	}
 	return &config
