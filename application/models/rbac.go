@@ -26,10 +26,11 @@ type Permission struct {
 
 type DataPermission struct {
 	BaseModel
-	OrgId    uint64 `json:"org_id"`
-	PermId   uint64 `json:"perm_id"`
-	DataKey  string `json:"data_key"`
-	ParentId uint64 `json:"parent_id"`
+	OrgId      uint64 `json:"org_id"`
+	PermId     uint64 `json:"perm_id"`
+	DataKey    string `json:"data_key"`
+	ChoicesUri string `json:"choices_uri"`
+	ParentId   uint64 `json:"parent_id"`
 }
 
 type RolePermissionMap struct {
@@ -41,10 +42,17 @@ type RolePermissionMap struct {
 
 type RoleDataPermission struct {
 	BaseModel
-	OrgId      uint64 `json:"org_id"`
-	RoleId     uint64 `json:"role_id"`
-	DataPermId uint64 `json:"data_perm_id"`
-	DataValue  string `json:"data_value"`
+	OrgId          uint64 `json:"org_id"`
+	RoleId         uint64 `json:"role_id"`
+	DataPermId     uint64 `json:"data_perm_id"`
+	PermissionType int    `json:"permission_type"` // default, select, all
+}
+
+type RoleDataPermissionSelect struct {
+	BaseModel
+	OrgId     uint64 `json:"org_id"`
+	RDId      uint64 `json:"rd_id"`
+	DataValue string `json:"data_value"`
 }
 
 type Menu struct {
