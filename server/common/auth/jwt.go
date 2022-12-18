@@ -16,9 +16,9 @@ const (
 )
 
 type UserClaims struct {
-	UserId       uint      `json:"user_id"`
+	UserId       uint64    `json:"user_id"`
 	UserName     string    `json:"username"`
-	RealUserId   uint      `json:"real_user_id"`
+	RealUserId   uint64    `json:"real_user_id"`
 	RealUserName string    `json:"real_user_name"`
 	TokenType    TokenType `json:"token_type"`
 }

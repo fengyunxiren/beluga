@@ -51,7 +51,7 @@ type OrganizationRank struct {
 	Name     string `json:"name"`
 	Code     string `json:"code" gorm:"uniqueIndex"`
 	Desc     string `json:"desc"`
-	ParentId uint32 `json:"parent_id" gorm:"default:0"`
+	ParentId uint64 `json:"parent_id" gorm:"default:0"`
 }
 
 type OrganizationRankLevel struct {

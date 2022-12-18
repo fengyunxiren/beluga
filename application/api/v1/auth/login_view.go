@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"beluga/application/api/models"
 	"beluga/application/api/v1/forms"
+	"beluga/application/models"
 	"beluga/server/common/auth"
 	"beluga/server/common/database"
 	"beluga/server/common/logger"

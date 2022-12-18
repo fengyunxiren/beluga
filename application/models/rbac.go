@@ -8,50 +8,30 @@ type Role struct {
 	Desc  string `json:"desc"`
 }
 
-type RoleExclusion struct {
-	BaseModel
-	OrgId   uint64 `json:"org_id"`
-	Role1Id uint64 `json:"role1_id"`
-	Role2Id uint64 `json:"role2_id"`
-}
-
 type Permission struct {
 	BaseModel
-	OrgId    uint64 `json:"org_id"`
-	Name     string `json:"name"`
-	Desc     string `json:"desc"`
-	Resource string `json:"resource" gorm:"uniqueIndex"`
-	Action   string `json:"action"`
-}
-
-type DataPermission struct {
-	BaseModel
-	OrgId      uint64 `json:"org_id"`
-	PermId     uint64 `json:"perm_id"`
-	DataKey    string `json:"data_key"`
-	ChoicesUri string `json:"choices_uri"`
-	ParentId   uint64 `json:"parent_id"`
+	OrgId     uint64 `json:"org_id"`
+	Name      string `json:"name"`
+	Desc      string `json:"desc"`
+	Resource  string `json:"resource" gorm:"uniqueIndex"`
+	Action    string `json:"action"`
+	ParentId  uint64 `json:"parent_id"`
+	SelectKey string `json:"select_key"`
+	SelectUrl string `json:"select_url"`
 }
 
 type RolePermissionMap struct {
 	BaseModel
-	OrgId  uint64 `json:"org_id"`
-	RoleId uint64 `json:"role_id"`
-	PermId uint64 `json:"perm_id"`
-}
-
-type RoleDataPermission struct {
-	BaseModel
 	OrgId          uint64 `json:"org_id"`
 	RoleId         uint64 `json:"role_id"`
-	DataPermId     uint64 `json:"data_perm_id"`
-	PermissionType int    `json:"permission_type"` // default, select, all
+	PermId         uint64 `json:"perm_id"`
+	PermissionType uint64 `json:"perm_type"` // default, select, all
 }
 
-type RoleDataPermissionSelect struct {
+type RolePermissionSelect struct {
 	BaseModel
 	OrgId     uint64 `json:"org_id"`
-	RDId      uint64 `json:"rd_id"`
+	MPId      uint64 `json:"rp_id"`
 	DataValue string `json:"data_value"`
 }
 
@@ -60,7 +40,6 @@ type Menu struct {
 	OrgId    uint64 `json:"org_id"`
 	Name     string `json:"name"`
 	Code     string `json:"code" gorm:"uniqueIndex"`
-	PermId   uint64 `json:"perm_id"`
 	ParentId uint64 `json:"parent_id"`
 	Desc     string `json:"desc"`
 }
@@ -70,7 +49,6 @@ type Widget struct {
 	OrgId  uint64 `json:"org_id"`
 	Name   string `json:"name"`
 	Code   string `json:"code" gorm:"uniqueIndex"`
-	PermId uint64 `json:"perm_id"`
 	MenuId uint64 `json:"menu_id"`
 	Desc   string `json:"desc"`
 }

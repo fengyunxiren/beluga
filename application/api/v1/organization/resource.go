@@ -1,7 +1,7 @@
 package organization
 
 import (
-	"beluga/application/api/models"
+	"beluga/application/models"
 	"fmt"
 
 	"gorm.io/gorm"
@@ -23,5 +23,5 @@ func (t OrganizationResource) ListOrganization(name, code string) ([]models.Orga
 		exec = exec.Where("Code = ?", code)
 	}
 	exec.Find(&result)
-	
+
 }
